@@ -48,14 +48,13 @@ export default class App extends React.Component {
 
 	editNote = (id, task) => {
 		if(!task.trim()) return;
-
-		const notes = this.state.notes.map(note => {
-			if(note.id === id && task){
-				note.task = task;
-			}
-
-			return note;
-		});
+		const editedNoteIndex = this.state.notes.findIndex( note => note.id === id );
+		const noteToEdit = this.state.notes.find( note => note.id === id );
+		const editedNote = Object.assign({}, noteToEdit, {task: task});
+		const notes = this.state.notes
+										.slice(0,editedNoteIndex)
+										.concat([editedNote])
+										.concat( this.state.notes.slice(editedNoteIndex) );
 
 		this.setState({notes});
 	};
