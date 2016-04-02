@@ -1,4 +1,48 @@
 body{
-	background: rebeccapurple;
-	color:white;
+	background: cornsilk;
+	font-family: sans-serif;
+}
+
+.AddNoteBtn{
+	background-color: #fdfdfd;
+	border: 1px solid #ccc;
+}
+
+.Notes{
+	margin: 0.5em;
+	padding-left: 0;
+	max-width: 10em;
+	list-style: none;
+}
+
+.Note {
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+
+  background-color: #fdfdfd;
+  box-shadow: 0 0 0.3em 0.03em rgba(0, 0, 0, 0.3);
+}
+
+.Note:hover {
+  box-shadow: 0 0 0.3em 0.03em rgba(0, 0, 0, 0.7);
+
+  transition: 0.6s;
+}
+
+.Note-task {
+  /* force to use inline-block so that it gets minimum height */
+  display: inline-block;
+}
+
+.Note-deleteNoteBtn{
+	float:right;
+	padding: 0;
+	background-color: #fdfdfd;
+	border: none;
+	cursor: pointer;
+	visibility: hidden;
+}
+
+.Note:hover .Note-deleteNoteBtn{
+	visibility: visible;
 }
