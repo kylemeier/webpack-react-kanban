@@ -29,12 +29,12 @@ body{
   transition: 0.6s;
 }
 
-.Note-task {
+.Editable-value {
   /* force to use inline-block so that it gets minimum height */
   display: inline-block;
 }
 
-.Note-deleteNoteBtn{
+.Edtiable-deleteBtn{
 	float:right;
 	padding: 0;
 	background-color: #fdfdfd;
@@ -43,6 +43,6 @@ body{
 	visibility: hidden;
 }
 
-.Note:hover .Note-deleteNoteBtn{
+.Note:hover .Edtiable-deleteBtn{
 	visibility: visible;
 }
