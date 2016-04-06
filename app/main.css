@@ -3,10 +3,6 @@ body{
 	font-family: sans-serif;
 }
 
-.AddNoteBtn{
-	background-color: #fdfdfd;
-	border: 1px solid #ccc;
-}
 
 .Notes{
 	margin: 0.5em;

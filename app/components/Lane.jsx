@@ -8,22 +8,24 @@ import LaneActions from '../actions/LaneActions';
 
 import Editable from './Editable.jsx';
 
+import styles from '../Lane.css';
+
 export default class Lane extends React.Component {
 	render(){
 		const {lane, ...props} = this.props;
 
 		return (
 			<div {...props}>
-				<div className="Lane-header" onClick={this.activateLaneEdit}>
-					<div className="Lane-addNote">
+				<div className={styles.header} onClick={this.activateLaneEdit}>
+					<div className={styles.addNote}>
 						<button onClick={this.addNote}>+</button>
 					</div>
 					<Editable 
-						className="Lane-name" 
+						className={styles.name}
 						editing={lane.editing}
 						value={lane.name}
 						onEdit={this.editName} />
-					<div className="Lane-deleteBtn">
+					<div className={styles.delete}>
 						<button onClick={this.deleteLane}>x</button>
 					</div>
 				</div>
@@ -52,7 +54,7 @@ export default class Lane extends React.Component {
 
 	addNote = (e) => {
 		e.stopPropagation();
-		
+
 		const laneId = this.props.lane.id;
 		const note = NoteActions.create({task: 'New task'});
 		LaneActions.attachToLane({
