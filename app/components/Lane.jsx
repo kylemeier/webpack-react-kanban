@@ -10,6 +10,8 @@ import Editable from './Editable.jsx';
 
 import styles from '../Lane.css';
 
+import mainStyles from '../main.css';
+
 export default class Lane extends React.Component {
 	render(){
 		const {lane, ...props} = this.props;
@@ -18,7 +20,7 @@ export default class Lane extends React.Component {
 			<div {...props}>
 				<div className={styles.header} onClick={this.activateLaneEdit}>
 					<div className={styles.addNote}>
-						<button onClick={this.addNote}>+</button>
+						<button className={mainStyles.btn} onClick={this.addNote}>+</button>
 					</div>
 					<Editable 
 						className={styles.name}
@@ -26,7 +28,7 @@ export default class Lane extends React.Component {
 						value={lane.name}
 						onEdit={this.editName} />
 					<div className={styles.delete}>
-						<button onClick={this.deleteLane}>x</button>
+						<button className={styles.deleteBtn} onClick={this.deleteLane}>x</button>
 					</div>
 				</div>
 				<AltContainer

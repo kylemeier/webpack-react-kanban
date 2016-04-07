@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from '../Editable.css';
+
 export default class Editable extends React.Component {
 
 	render(){
@@ -31,14 +33,14 @@ export default class Editable extends React.Component {
 
 		return (
 			<div onClick={this.props.onValueClick}>
-				<span className="Editable-value">{this.props.value}</span>
+				<span className={styles.value}>{this.props.value}</span>
 				{onDelete ? this.renderDelete() : null }
 			</div>
 		);
 	};
 
 	renderDelete = () => {
-		return <button className="Editable-deleteBtn" onClick={this.props.onDelete}>x</button>;
+		return <button className={styles.btn} onClick={this.props.onDelete}>x</button>;
 	};
 
 

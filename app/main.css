@@ -4,41 +4,12 @@ body{
 }
 
 
-.Notes{
-	margin: 0.5em;
-	padding-left: 0;
-	max-width: 10em;
-	list-style: none;
-}
-
-.Note {
-  margin-bottom: 0.5em;
-  padding: 0.5em;
-
-  background-color: #fdfdfd;
-  box-shadow: 0 0 0.3em 0.03em rgba(0, 0, 0, 0.3);
-}
-
-.Note:hover {
-  box-shadow: 0 0 0.3em 0.03em rgba(0, 0, 0, 0.7);
-
-  transition: 0.6s;
-}
-
-.Editable-value {
-  /* force to use inline-block so that it gets minimum height */
-  display: inline-block;
-}
-
-.Edtiable-deleteBtn{
-	float:right;
-	padding: 0;
-	background-color: #fdfdfd;
-	border: none;
-	cursor: pointer;
-	visibility: hidden;
-}
-
 .Note:hover .Edtiable-deleteBtn{
 	visibility: visible;
+}
+
+.btn{
+	cursor: pointer;
+	background-color: #fdfdfd;
+	border: 1px solid #ccc;
 }

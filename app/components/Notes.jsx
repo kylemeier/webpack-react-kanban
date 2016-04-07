@@ -1,10 +1,12 @@
 import React from 'react';
 import Editable from './Editable.jsx';
 
+import noteStyles from '../Note.css';
+
 export default ({notes, onValueClick, onEdit, onDelete}) => {
 	return (
 		<ul className="Notes">{notes.map(note => 
-			<li className="Note" key={note.id}>
+			<li className={noteStyles.root} key={note.id}>
 				<Editable
 					editing={note.editing}
 					value={note.task}

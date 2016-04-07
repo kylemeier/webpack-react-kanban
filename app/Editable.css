@@ -1,0 +1,13 @@
+.value{
+  /* force to use inline-block so that it gets minimum height */
+  display: inline-block;
+}
+
+.btn{
+	float:right;
+	padding: 0;
+	background-color: #fdfdfd;
+	border: none;
+	cursor: pointer;
+	visibility: hidden;
+}

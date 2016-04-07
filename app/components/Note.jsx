@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from '../Note.css';
+
 export default class Note extends React.Component {
 	constructor(props){
 			super(props);
@@ -44,7 +46,7 @@ export default class Note extends React.Component {
 	};
 
 	renderDelete = () => {
-		return <button className="Note-deleteNoteBtn" onClick={this.props.onDelete}>x</button>;
+		return <button className={style.btn} onClick={this.props.onDelete}>x</button>;
 	};
 
 	edit = () => {
