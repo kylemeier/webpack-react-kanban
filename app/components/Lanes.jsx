@@ -4,6 +4,7 @@ import Lane from './Lane.jsx';
 import styles from '../Lane.css';
 
 export default ({lanes}) => {
+	console.log({lanes});
 	return (
 		<div className="Lanes">
 			{lanes.map(lane=>

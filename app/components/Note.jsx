@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../Note.css';
+import style from '../Note.css';
 
 export default class Note extends React.Component {
 	constructor(props){
@@ -39,7 +39,7 @@ export default class Note extends React.Component {
 
 		return (
 			<div onClick={this.edit}>
-				<span className="Note-task">{this.props.task}</span>
+				<span className={styles.task}>{this.props.task}</span>
 				{onDelete ? this.renderDelete() : null }
 			</div>
 		);
