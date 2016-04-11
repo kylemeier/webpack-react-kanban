@@ -75,6 +75,7 @@ export default class Lane extends React.Component {
 	}
 
 	editName = (name) => {
+		
 		const laneId = this.props.lane.id;
 
 		if(!name.trim()){
