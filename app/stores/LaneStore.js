@@ -82,14 +82,14 @@ class LaneStore{
 	move({sourceId, targetId}){
 		console.log(sourceId, targetId);
 		const lanes = this.lanes;
-		const sourceLane = lanes.filter(lane => lane.notes.includes(sourceId))[0];
-		const targetLane = lanes.filter(lane => lane.notes.includes(targetId))[0];
-		const sourceNoteIndex = sourceLane.notes.indexOf(sourceId);
-		const targetNoteIndex = targetLane.notes.indexOf(targetId);
+		const sourceLane = lanes.filter(lane => lane.noteIds.includes(sourceId))[0];
+		const targetLane = lanes.filter(lane => lane.noteIds.includes(targetId))[0];
+		const sourceNoteIndex = sourceLane.noteIds.indexOf(sourceId);
+		const targetNoteIndex = targetLane.noteIds.indexOf(targetId);
 
 		if(sourceLane === targetLane){
 
-			sourceLane.notes = update(sourceLane.notes, {
+			sourceLane.noteIds = update(sourceLane.noteIds, {
 				$splice: [
 					[sourceNoteIndex, 1],
 					[targetNoteIndex, 0, sourceId]
@@ -97,8 +97,8 @@ class LaneStore{
 			});
 		}
 		else{
-			sourceLane.notes.splice(sourceNoteIndex,1);
-			targetLane.notes.splice(targetNoteIndex, 0, sourceId);
+			sourceLane.noteIds.splice(sourceNoteIndex,1);
+			targetLane.noteIds.splice(targetNoteIndex, 0, sourceId);
 		}
 
 		this.setState({lanes});
