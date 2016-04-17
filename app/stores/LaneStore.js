@@ -80,7 +80,6 @@ class LaneStore{
 	}
 
 	move({sourceId, targetId}){
-		console.log(sourceId, targetId);
 		const lanes = this.lanes;
 		const sourceLane = lanes.filter(lane => lane.noteIds.includes(sourceId))[0];
 		const targetLane = lanes.filter(lane => lane.noteIds.includes(targetId))[0];
