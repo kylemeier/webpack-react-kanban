@@ -51,6 +51,9 @@ class LaneStore{
 		
 		const lanes = this.lanes.map( lane => {
 
+			if(lane.noteIds.includes(noteId)){
+				lane.noteIds = lane.noteIds.filter(laneNoteId => laneNoteId !== noteId);
+			}
 			if(lane.id === laneId ){
 
 				if( lane.noteIds.includes(noteId) ){
