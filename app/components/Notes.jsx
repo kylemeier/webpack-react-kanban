@@ -12,7 +12,7 @@ export default ({notes, onValueClick, onEdit, onDelete}) => {
 		<ul className={notesStyles.root}>{notes.map(note =>  {
 			return(
 				<Note className={noteStyles.root} id={note.id} key={note.id}
-					onMove={LaneActions.move}>
+					editing={note.editing} onMove={LaneActions.move}>
 						<Editable
 							editing={note.editing}
 							value={note.task}
