@@ -6,7 +6,7 @@ import NoteStore from '../stores/NoteStore';
 
 import LaneActions from '../actions/LaneActions';
 
-import {DropTarget} from 'react-dnd';
+import {DragSource, DropTarget} from 'react-dnd';
 import ItemTypes from '../constants/itemTypes';
 
 import Editable from './Editable.jsx';
@@ -14,6 +14,14 @@ import Editable from './Editable.jsx';
 import styles from '../Lane.css';
 
 import mainStyles from '../main.css';
+
+const laneSource = {
+	beginDrag(props){
+		return {
+			id: props.id
+		};
+	}
+};
 
 const noteTarget = {
 	hover(targetProps, monitor){
@@ -30,14 +38,20 @@ const noteTarget = {
 	}
 }
 
+@DragSource(ItemTypes.LANE, laneSource, (connect, monitor) => ({
+	connectDragSource: connect.dragSource(),
+	isDragging: monitor.isDragging()
+}))
 @DropTarget(ItemTypes.NOTE, noteTarget, (connect) => ({
 	connectDropTarget: connect.dropTarget()
 }))
 export default class Lane extends React.Component {
 	render(){
-		const {connectDropTarget, lane, ...props} = this.props;
+		const {connectDragSource, connectDropTarget, lane, ...props} = this.props;
 
-		return connectDropTarget(
+		// const dragSource = editing ? a => a : connectDragSource;
+
+		return connectDragSource(connectDropTarget(
 			<div {...props}>
 				<div className={styles.header} onClick={this.activateLaneEdit}>
 					<div className={styles.addNote}>
@@ -63,7 +77,7 @@ export default class Lane extends React.Component {
 						onDelete={this.deleteNote} />
 				</AltContainer>
 			</div>
-		);
+		));
 	}
 
 	editNote(id, task){
