@@ -23,8 +23,21 @@ const laneSource = {
 	}
 };
 
+const laneTarget = {
+	hover(targetProps, monitor){
+		const targetId = targetProps.id;
+		const sourceProps = monitor.getItem();
+		const sourceId = sourceProps.id;
+
+		if(sourceId !== targetId){
+			targetProps.onMove({sourceId, targetId});
+		}
+	}
+}
+
 const noteTarget = {
 	hover(targetProps, monitor){
+
 		const targetId = targetProps.lane.id;
 		const sourceProps = monitor.getItem();
 		const sourceId = sourceProps.id;
@@ -41,6 +54,9 @@ const noteTarget = {
 @DragSource(ItemTypes.LANE, laneSource, (connect, monitor) => ({
 	connectDragSource: connect.dragSource(),
 	isDragging: monitor.isDragging()
+}))
+@DropTarget(ItemTypes.LANE, laneTarget, (connect) => ({
+	connectDropTarget: connect.dropTarget()
 }))
 @DropTarget(ItemTypes.NOTE, noteTarget, (connect) => ({
 	connectDropTarget: connect.dropTarget()
