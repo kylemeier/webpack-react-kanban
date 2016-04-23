@@ -107,6 +107,7 @@ class LaneStore{
 	}
 
 	moveLane({sourceId, targetId}){
+		console.log('move lane');
 		const lanes = this.lanes;
 		const sourceLane = lanes.find(lane => lane.id === sourceId);
 		const targetLane = lanes.find(lane => lane.id === targetId);

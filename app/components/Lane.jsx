@@ -25,12 +25,13 @@ const laneSource = {
 
 const laneTarget = {
 	hover(targetProps, monitor){
+		console.log(targetProps);
 		const targetId = targetProps.id;
 		const sourceProps = monitor.getItem();
 		const sourceId = sourceProps.id;
 
 		if(sourceId !== targetId){
-			targetProps.onMove({sourceId, targetId});
+			targetProps.onMoveLane({sourceId, targetId});
 		}
 	}
 }
@@ -63,11 +64,12 @@ const noteTarget = {
 }))
 export default class Lane extends React.Component {
 	render(){
-		const {connectDragSource, connectDropTarget, lane, ...props} = this.props;
+		const {connectDragSource, connectDropTarget, isDragging, lane,
+			id, onMoveLane, editing, ...props} = this.props;
 
-		// const dragSource = editing ? a => a : connectDragSource;
+		const dragSource = editing ? a => a : connectDragSource;
 
-		return connectDragSource(connectDropTarget(
+		return dragSource(connectDropTarget(
 			<div {...props}>
 				<div className={styles.header} onClick={this.activateLaneEdit}>
 					<div className={styles.addNote}>
