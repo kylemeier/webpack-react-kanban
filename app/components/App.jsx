@@ -12,6 +12,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 
 //redux
 import CreateLane from '../containers/CreateLane.jsx';
+import LaneList from '../containers/LaneList';
 
 
 @DragDropContext(HTML5Backend)
@@ -22,13 +23,7 @@ export default class App extends React.Component {
 		return (
 			<div>
 				<CreateLane />
-				<AltContainer
-					stores={[LaneStore]}
-					inject={{
-						lanes: () => LaneStore.getState().lanes || []
-					}} >
-					<Lanes />
-				</AltContainer>
+				<LaneList />
 			</div>
 		);
 	}

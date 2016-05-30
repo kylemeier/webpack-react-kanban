@@ -7,7 +7,7 @@ import ItemTypes from '../constants/itemTypes';
 import styles from '../Lane.css';
 
 export default ({lanes}) => {
-	
+	console.log(lanes);
 	return (
 		<div className="Lanes">
 			{lanes.map(lane=>

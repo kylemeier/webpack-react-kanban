@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createLane } from '../actions/LaneActions';
-import styles from '../main.css';
 
 // const mapDispatchToProps = (dispatch)=>{
 // 	return {
