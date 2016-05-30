@@ -8,6 +8,17 @@ import alt from './libs/alt';
 import storage from './libs/storage';
 import persist from './libs/persist';
 
-persist(alt, storage, 'app');
+//redux
+import { createStore } from 'redux';
+import kanbanApp from './reducers';
+import { Provider } from 'react-redux'
 
-ReactDOM.render(<App />, document.getElementById('app'));
+// persist(alt, storage, 'app');
+let store = createStore(kanbanApp);
+
+ReactDOM.render(
+	<Provider store={store}>
+		<App />
+	</Provider>,
+		document.getElementById('app')
+);

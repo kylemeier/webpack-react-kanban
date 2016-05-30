@@ -10,6 +10,9 @@ import styles from '../main.css'
 import {DragDropContext} from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
+//redux
+import CreateLane from '../containers/CreateLane.jsx';
+
 
 @DragDropContext(HTML5Backend)
 export default class App extends React.Component {
@@ -18,7 +21,7 @@ export default class App extends React.Component {
 
 		return (
 			<div>
-				<button className={styles.btn} onClick={this.addLane}>+</button>
+				<CreateLane />
 				<AltContainer
 					stores={[LaneStore]}
 					inject={{
