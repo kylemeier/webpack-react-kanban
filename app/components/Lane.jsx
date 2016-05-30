@@ -142,8 +142,7 @@ export default class Lane extends React.Component {
 	deleteLane = (e) => {
 		e.stopPropagation();
 		const laneId = this.props.lane.id;
-
-		LaneActions.delete(laneId);
+		this.props.deleteLane(laneId);
 	}
 
 	activateLaneEdit = () => {

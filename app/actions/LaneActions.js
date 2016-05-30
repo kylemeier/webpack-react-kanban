@@ -9,7 +9,6 @@ export const MOVE = 'MOVE';
 export const MOVE_LANE = 'MOVE_LANE';
 
 export function createLane(lane){
-
 	return { 
 		type: CREATE_LANE,
 		lane: {
@@ -18,7 +17,14 @@ export function createLane(lane){
 			name: lane.name
 		}
 	};
-}
+};
+
+export function deleteLane(id){
+	return {
+		type: DELETE_LANE,
+		id
+	};
+};
 
 // , 
 // 	'update', 
