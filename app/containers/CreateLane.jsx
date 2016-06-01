@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createLane } from '../actions/LaneActions';
+import { createLane } from '../actions/LaneActionCreators';
 
 let CreateLane = ({dispatch})=>{
 		return (

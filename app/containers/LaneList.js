@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { deleteLane, updateLane } from '../actions/LaneActions';
+import * as actionCreators from '../actions/LaneActionCreators';
 import Lanes from '../components/Lanes';
 
 const mapStateToProps = (state)=>{
@@ -9,7 +9,7 @@ const mapStateToProps = (state)=>{
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ deleteLane, updateLane }, dispatch);
+  return bindActionCreators(actionCreators, dispatch);
 }
 
 const LaneList = connect(mapStateToProps, mapDispatchToProps)(Lanes);
