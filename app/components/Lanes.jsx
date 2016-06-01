@@ -19,12 +19,16 @@ import styles from '../Lane.css';
 
 export default class Lanes extends React.Component {
 	render(){
-			const {lanes, deleteLane} = this.props;
+			const {lanes, deleteLane, updateLane} = this.props;
 
 			return (
 				<div className="Lanes">
 					{lanes.map(lane=>
-						<Lane className={ styles.root } key={lane.id} lane={lane} deleteLane={deleteLane} />
+						<Lane className={ styles.root } 
+									key={lane.id} 
+									lane={lane} 
+									deleteLane={deleteLane}
+									updateLane={updateLane} />
 					)}
 				</div>
 			);

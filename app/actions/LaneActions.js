@@ -26,6 +26,13 @@ export function deleteLane(id){
 	};
 };
 
+export function updateLane(lane){
+	return {
+		type: UPDATE_LANE,
+		lane
+	}
+}
+
 // , 
 // 	'update', 
 // 	'delete', 

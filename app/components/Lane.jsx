@@ -132,11 +132,11 @@ export default class Lane extends React.Component {
 		const laneId = this.props.lane.id;
 
 		if(!name.trim()){
-			LaneActions.update({id: laneId, editing: false});
+			this.props.updateLane({id: laneId, editing: false});
 			return;
 		}
 
-		LaneActions.update({id: laneId, name, editing:false});
+		this.props.updateLane({id: laneId, name, editing:false});
 	}
 
 	deleteLane = (e) => {
@@ -147,8 +147,7 @@ export default class Lane extends React.Component {
 
 	activateLaneEdit = () => {
 		const laneId = this.props.lane.id;
-
-		LaneActions.update({id: laneId, editing: true});
+		this.props.updateLane({id: laneId, editing: true});
 	}
 
 	activateNoteEdit(id) {

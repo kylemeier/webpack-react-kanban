@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 import {
 	CREATE_LANE,
-	DELETE_LANE
+	DELETE_LANE,
+	UPDATE_LANE,
 } from './actions/LaneActions';
 
 const initialState = {
@@ -14,8 +15,20 @@ function lanes(state = [], action){
 
 		case CREATE_LANE:
 			return [...state, action.lane]
+
 		case DELETE_LANE:
 			return state.filter( lane=>{return lane.id !== action.id} )
+
+		case UPDATE_LANE:
+			const updatedLane = action.lane;
+
+			return state.map(lane=>{
+				if(lane.id === updatedLane.id){
+					return Object.assign({}, lane, updatedLane);
+				}
+				return lane;
+			});
+
 		default:
 			return state
 	}
