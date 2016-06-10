@@ -25,3 +25,12 @@ export function updateLane(lane){
 		lane
 	}
 }
+
+export function attachToLane({laneId, noteId}){
+	return {
+		type: ACTIONS.ATTATCH_TO_LANE,
+		laneId,
+		noteId
+	}
+}
+
